@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import Coin from './Coin';
-import {choice} from './helper';
+import React, { Component } from "react";
+import Coin from "./Coin";
+import { choice } from "./helpers";
+
 
 import coin_head from './coin_imgs/Bitcoin_Head.jpg';
 import coin_tail from './coin_imgs/Bitcoin_Tail.jpg';
 
 class CoinContainer extends Component {
   static defaultProps = {
-    coins: [
+       coins: [        
       { side: "heads", imgSrc: coin_head },
       { side: "tails", imgSrc: coin_tail }
     ]
@@ -22,34 +23,29 @@ class CoinContainer extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  flip() {    
-    var newCoin = choice(this.props.coins);
-    console.log(this.state.currCoin);
+  flipCoin() {
 
-    this.setState((st) => {
+    const newCoin = choice(this.props.coins);
+    this.setState(st => {
       return {
-        //  ................Asking Colt Question.........?????
-        // currCoin: newCoin,
-        // nFlips: st.nFlips + 1,
-        // nHeads: st.nHeads + (newCoin.side === "heads" ? 1 : 0),
-        // nTails: st.nTails + (newCoin.side === "tails" ? 1 : 0)
-
-        currCoin: choice(this.props.coins),   
-        nFlips: st.nFlips + 1,     
-        nHeads: st.nHeads + (st.currCoin.side === "heads" ? 1 : 0),
-        nTails: st.nTails + (st.currCoin.side === "tails" ? 1 : 0)
+        currCoin: newCoin, 
+        nFlips: st.nFlips + 1,
+        nHeads: st.nHeads + (newCoin.side === "heads" ? 1 : 0),
+        nTails: st.nTails + (newCoin.side === "tails" ? 1 : 0)
       };
     });
   }
-  handleClick() {
-    this.flip();
+  handleClick(e) {
+    this.flipCoin();
   }
   render() {
     return (
-      <div>
-        <h1>Flip a Coin</h1>
-        <button onClick={this.handleClick}>Flip Me</button>
+      <div className='CoinContainer'>
+        <h2>Let's Flip A Coin!</h2>
+
         {this.state.currCoin && <Coin info={this.state.currCoin} />}
+
+        <button onClick={this.handleClick}>Flip Me!</button>
         <p>
           Out of {this.state.nFlips} flips, there have been {this.state.nHeads}{" "}
           heads and {this.state.nTails} tails.
