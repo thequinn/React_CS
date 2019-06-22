@@ -5,7 +5,7 @@ import Clicker from "./Clicker";
 class App extends Component {
   render() {
     return (
-      <div class='myApp'>
+      <div className='myApp'>
         <Clicker />
       </div>
     );
