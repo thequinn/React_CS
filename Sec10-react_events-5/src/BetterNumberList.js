@@ -4,19 +4,26 @@ import BetterNumberItem from "./BetterNumberItem";
 class BetterNumberList extends Component {
   constructor(props) {
     super(props);
-    this.state = { nums: [1, 2, 3, 4, 5] };
+    // Using array's indexes as keys
+    // Note: Best Correct method will be taught later.
+    this.state = { nums: [1, 2, 2, 2, 3, 4, 5, 5] };
+
     this.remove = this.remove.bind(this);
   }
 
   remove(num) {
+    console.log("REMOVING!");
+    console.log("num: ", num);
+
     this.setState(st => ({
       nums: st.nums.filter(n => n !== num)
     }));
   }
 
   render() {
-    let nums = this.state.nums.map(n => (
-      <BetterNumberItem key={n} value={n} remove={this.remove} />
+    // Using array's indexes as keys
+    let nums = this.state.nums.map((n, idx) => (
+      <BetterNumberItem key={idx} value={n} remove={this.remove} />
     ));
 
     return (

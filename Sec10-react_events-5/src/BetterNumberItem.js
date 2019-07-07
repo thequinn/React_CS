@@ -6,12 +6,13 @@ class BetterNumberItem extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
   handleRemove(evt) {
+    console.log("INSIDE HANDLE REMOVE");
     this.props.remove(this.props.value);
   }
   render() {
     return (
       <li>
-        {this.props.value}
+        {this.props.value}        
         <button onClick={this.handleRemove}>X</button>
       </li>
     );
