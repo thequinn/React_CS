@@ -13,18 +13,15 @@ class ExperimentalSquare extends Component {
   //   super(props);
   // }
 
-  // Using this ln gets an error of Cannot read property 'props' of undefined. So I added ln-13-14, but didn't fix the bug.  The real fix is using ln-19
-  // dispenseWisdom() { 
-  // 
+
+  // Method #4: Using React's Experimental Public Class Field
   dispenseWisdom = () => {
-    console.log("ExperimentalSquare.js, ln-20, this: <<<", this, '>>>');
     let { messages } = this.props;
     let rIndex = Math.floor(Math.random() * messages.length);
-    console.log("ExperimentalSquare.js, render(), ln-23, messages[rIndex]: ", messages[rIndex]);
   };
 
   render() {
-    console.log("ExpermentalSquare.js, render(), ln-27, this: <<<", this, ">>>");
+   
     return (
       <div className='WiseSquare' onMouseEnter={this.dispenseWisdom}>
         😃

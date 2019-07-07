@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class WiseSquareWithProps extends Component {
   constructor(props) {
     super(props);
-    this.dispenseWisdom = this.dispenseWisdom.bind(this);
+    // Method #3: Binding "this" in constructor
+    // this.dispenseWisdom = this.dispenseWisdom.bind(this);
   }
   static defaultProps = {
     messages: [
@@ -14,18 +15,30 @@ class WiseSquareWithProps extends Component {
   };
 
   dispenseWisdom() {
-    console.log("WiseSquareWithProps.js, ln-17, this: <<<", this, '>');
     let { messages } = this.props;
+
     let rIndex = Math.floor(Math.random() * messages.length);
-    console.log("WiseSquareWithProps.js, ln-20, messages[rIndex]: ", messages[rIndex]);
   }
 
   render() {
-    console.log("WiseSquareWithProps.js, render(), ln-24, this: <<<", this, ">>>");
+
     return (
+      // WRONG!! No binding of "this" component
       <div className='WiseSquare' onMouseEnter={this.dispenseWisdom}>
         😃
       </div>
+
+      // Method #1: Binding in-line
+      // <div className="WiseSquare" onMouseEnter={this.dispenseWisdom.bind(this)}>
+      //   😃
+      // </div>
+
+      // Method #2: Using Arrow function in-line (rather than binding)
+      // <div className="WiseSquare" onMouseEnter={() => this.dispenseWisdom()}>
+      //   😃
+      // </div>
+
+      // Method #3: See ln-7
     );
   }
 }
