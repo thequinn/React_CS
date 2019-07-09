@@ -9,20 +9,23 @@ class BetterNumberList extends Component {
   }
 
   remove(num) {
+    console.log("REMOVING!");
+    console.log("num: ", num);
+
     this.setState(st => ({
       nums: st.nums.filter(n => n !== num)
     }));
   }
 
   render() {
-    let nums = this.state.nums.map(n => (
+    let nums_local = this.state.nums.map(n =>
       <BetterNumberItem key={n} value={n} remove={this.remove} />
-    ));
+    );
 
     return (
       <div>
         <h1>Better Number List</h1>
-        <ul>{nums}</ul>
+        <ul>{nums_local}</ul>
       </div>
     );
   }

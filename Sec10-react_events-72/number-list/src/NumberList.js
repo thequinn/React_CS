@@ -8,21 +8,20 @@ class NumberList extends Component {
   }
 
   remove(num) {
-    this.setState(st => ({
-      nums: st.nums.filter(n => n !== num)
-    }));
+    this.setState(st => (
+      { nums: st.nums.filter(n => n !== num) }
+    ));
   }
 
   render() {
-
-    let nums = this.state.nums.map(n => (
+    let nums_local = this.state.nums.map(n =>
       <NumberItem value={n} remove={() => this.remove(n)} />
-    ));
+    );
 
     return (
       <div>
         <h1>First Number List</h1>
-        <ul>{nums}</ul>
+        <ul>{nums_local}</ul>
       </div>
     );
   }

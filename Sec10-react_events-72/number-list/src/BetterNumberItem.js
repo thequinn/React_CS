@@ -5,9 +5,11 @@ class BetterNumberItem extends Component {
     super(props);
     this.handleRemove = this.handleRemove.bind(this);
   }
-  handleRemove(evt) {
+
+  handleRemove() {
     this.props.remove(this.props.value);
   }
+
   render() {
     return (
       <li>
