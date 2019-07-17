@@ -1,3 +1,3 @@
 # Web_Dev-React
 
-Learning React framework.
+My practices of the React framework.
