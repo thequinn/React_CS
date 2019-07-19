@@ -18,6 +18,7 @@ class TodoList extends Component {
 
     this.create = this.create.bind(this);
     this.remove = this.remove.bind(this);
+    this.update = this.update.bind(this);
   }
 
   create(newTodo) {
@@ -33,6 +34,29 @@ class TodoList extends Component {
     // filter() returns a new array w/ the elements that pass the test
     let newTodos = this.state.todos.filter(todo => todo.id !== id);
     this.setState({ todos: newTodos });
+  }
+
+  update(id, updatedTask) {
+    // Method-#1 by Quinn:
+    // const updatedTodos = this.state.todos.map(todo => {
+    //   if (todo.id === id) {
+    //     todo.task = updatedTask;
+    //   }
+    //   return todo;
+    // });
+    //
+    // Method-#2 by Colt:
+    const updatedTodos = this.state.todos.map(todo => {
+      if (todo.id === id) {
+        // Take what's exiting in the todo , but overrides the task property
+        return { ...todo, task: updatedTask };
+      }
+      // If it's not, take it as-is and put it in the array
+      return todo;
+    });
+
+    // Remember!! Don't mutate the state directly inside setState()
+    this.setState({ todos: updatedTodos });
   }
 
   // Display Todo List - Method #1:
@@ -58,6 +82,7 @@ class TodoList extends Component {
               id={todo.id} 
               todo={todo} 
               removeTodo={this.remove} 
+              updateTodo={this.update}
         />
       );
     });
