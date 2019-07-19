@@ -75,7 +75,7 @@ class Todo extends Component {
                
         </li>
         <button type="button" onClick={this.toggleForm}>Edit</button> &emsp; 
-         <button type="button" onClick={this.handleRemove}>Delete</button>
+        <button type="button" onClick={this.handleRemove}>X</button>
         
        </div>
       );
