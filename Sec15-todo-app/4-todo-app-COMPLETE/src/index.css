@@ -1,0 +1,18 @@
+/* Modified from Todo List UI by Sawsan on codepen.io */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db); */
+  /* background-image: linear-gradient(to right top, #b8c6db, #95d0e7, #70dadc, #75e0b7, #a6de83); */
+  background-image: linear-gradient(to right, #f9fcfc, #d3f9f8, #a9f5f4, #77f0ee, #12ebe7);
+  
+  font-size: 1.1rem;
+  font-family: "Quicksand", sans-serif;
+  height: 100%;
+}
