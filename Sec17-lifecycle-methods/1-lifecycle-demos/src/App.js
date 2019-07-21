@@ -1,12 +1,13 @@
 import React from 'react';
 import Timer from './Timer';
-import DataLoader from "./DataLoader";
+import Timer2 from './Timer2';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Timer />
+      {/* <Timer2 />    */}
     </div>
   );
 }
