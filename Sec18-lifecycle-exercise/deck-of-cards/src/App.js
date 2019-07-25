@@ -1,15 +1,15 @@
-import React from 'react';
-import Deck from './Deck';
-import './App.css';
+import React, { Component } from "react";
+import Deck from "./Deck";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <div>
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
         <Deck />
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
