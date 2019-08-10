@@ -11,11 +11,19 @@ class JokeList extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { jokes: [] };
+    this.state = { 
+      jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]")
+    };
     this.handleVote = this.handleVote.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    if (this.state.jokes.length === 0)   
+      this.getJokes();
+  }
+
+  async getJokes() {
     let jokes = [];
 
     try {
@@ -32,7 +40,11 @@ class JokeList extends Component {
         });
         // console.log(jokes);
       }
-      this.setState({ jokes: jokes });
+      
+      this.setState(
+        st => ({ jokes: [...st.jokes, ...jokes] }),
+        () => window.localStorage.setItem('jokes', JSON.stringify(this.state.jokes))
+      );
     } 
     catch(err) {
       console.error(err)
@@ -42,13 +54,20 @@ class JokeList extends Component {
   handleVote(id, delta) {
     // console.log(`id: ${id}    delta: ${delta}`);
         
-    this.setState(st => ({
-      jokes: st.jokes.map(j => 
-        j.id === id ? {...j, votes: j.votes + delta} : j
-      )
-    }));
+    this.setState(
+      st => ({
+        jokes: st.jokes.map(j => 
+          j.id === id ? {...j, votes: j.votes + delta} : j
+        )
+      }),
+      () => window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+    );
   }
 
+  handleClick() {
+    this.getJokes();
+  }
+  
   render() {
     return (
       <div className="JokeList">
@@ -56,10 +75,10 @@ class JokeList extends Component {
           <h1 className='JokeList-title'>
             <span>Dad</span> Jokes
           </h1>
-          <img src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg' />
-          <button className='JokeList-getmore'>
-          Fetch Jokes
-        </button>
+          <img src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg' alt="emoji icon" />
+          <button className='JokeList-getmore' onClick={this.handleClick}>
+            Fetch Jokes
+          </button>
         </div>                
 
         <div className="JokeList-jokes">
