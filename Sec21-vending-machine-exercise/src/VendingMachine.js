@@ -15,12 +15,13 @@ class VendingMachine extends Component {
       >
         <Message>
           <h1>Home Page</h1>
+          <h3>I am a vending machine. Please place your order.</h3>
         </Message>
 
         <Message>
-          <Link to='/soda'>Soda</Link>
-          <Link to='/chips'>Chips</Link>
-          <Link to='/Avacade'>Avacade</Link>        
+          <h2><Link to='/avacado'>Avacado</Link></h2>       
+          <h2><Link to='/chips'>Chips</Link></h2>
+          <h2><Link to='/soda'>Soda</Link></h2>
         </Message>
       </div>
     );
