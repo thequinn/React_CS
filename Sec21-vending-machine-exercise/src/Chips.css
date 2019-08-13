@@ -21,12 +21,12 @@
   cursor: pointer;
 }
 
-/* .Chips button:active,
+.Chips button:active,
 .Chips button:focus {
   outline: none;
-} */
+} 
 
-/* .bag {
+.bag {
   position: absolute;
   z-index: -1;
-} */
+}

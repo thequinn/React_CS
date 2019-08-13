@@ -38,17 +38,14 @@ class Chips extends Component {
     ));
     return (
       <div className='Chips'>
-
-        {/* <Message> */}
-
+        <Message>
           <h1>Chips Page:</h1>
           <h3>Bags of chips you want: {this.state.bags.length}</h3>
           <h3>
             <button onClick={this.handleClick}>Click</button>      
           </h3>
           <Link to='/'>Go Back</Link>        
-
-        {/* </Message> */}
+        </Message>
 
         {bags}
       </div>
