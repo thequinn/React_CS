@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Routes from './Routes';
+import Navbar from './Navbar';
 import whiskey from './images/whiskey.jpg';
 import hazel from './images/hazel.jpg';
 import tubby from './images/tubby.jpg';
@@ -41,17 +42,11 @@ class App extends Component {
       }
     ]
   };
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-
-  //   };
-  // }
   render() {
     return (
       <div className="App">
         <div>
-          {/* <Navbar /> */}
+          <Navbar dogs={this.props.dogs} />
           <Routes dogs={this.props.dogs} />
         </div>
       </div>
