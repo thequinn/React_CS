@@ -7,23 +7,25 @@ class DogDetails extends Component {
     let {dog} = this.props;
 
     return(
-      <div className='container'>
+      // Bootstrap Grid System 
+
+      // Moved to wrap around <Routes dogs={this.props.dogs} /> in App.js
+      // <div className='container'>
         <div className="DogDetails row justify-content-center mt-5">
           <div className='col-11 col-lg-5'>
             <div className='DogDetails-card card'>
               <img className='card-img-top' src={dog.src} alt={dog.name} />
-              <div class="card-body">
-                <h5 class="card-title">{dog.name}</h5>
+              <div className="card-body">
+                <h5 className="card-title">{dog.name}</h5>
                 <h4 className='card-subtitle text-muted'>{dog.age} year(s) old</h4>
 
               </div>
-              <ul class="list-group list-group-flush">
+              <ul className="list-group list-group-flush">
                 {dog.facts.map((fact, index) => 
-                  <li class="list-group-item">{fact}</li>                
-                )}
-                
+                  <li className="list-group-item" key={index}>{fact}</li>                
+                )}                
               </ul>
-              <div class="card-body">
+              <div className="card-body">
                 <Link to='/dogs' className='btn btn-info'>
                   Go Back
                 </Link>
@@ -31,7 +33,7 @@ class DogDetails extends Component {
             </div>
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 }
