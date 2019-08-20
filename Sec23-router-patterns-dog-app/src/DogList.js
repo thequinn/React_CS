@@ -6,7 +6,7 @@ class DogList extends Component {
   render() {  
     return (
       <div className='DogList'>
-        <h1 className='display-1 text-center'>Dog List</h1>
+        <h1 className='display-1 text-center mt-3 mb-5'>Dog List</h1>
 
         {/* Moved to wrap around <Routes dogs={this.props.dogs} /> in App.js */}
         {/* <div className="container"> */}
