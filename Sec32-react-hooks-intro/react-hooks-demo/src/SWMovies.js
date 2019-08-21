@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function SWMovies() {
-  const [number, setNumber] = useState(1);
+  // 1 in useState(): set to 1st movie for dropdown list
+  const [number, setNumber] = useState(1); 
   const [movie, setMovie] = useState("");
 
   useEffect(() => {
@@ -18,6 +19,8 @@ function SWMovies() {
       <h1>Pick A Movie</h1>
       <h4>{movie.title}</h4>
       <p>{movie.opening_crawl}</p>
+
+      {/* Drop-down list */}
       <select value={number} onChange={e => setNumber(e.target.value)}>
         <option value='1'>1</option>
         <option value='2'>2</option>

@@ -19,12 +19,18 @@ class App extends Component {
       <div className='App'>
         <CounterClass />
         <CounterHooks />
+
+        {/* Toggler comp calls ./hooks/useToggle.js as hook */}
         <Toggler />
+
         <SimpleFormClass />
         <SimpleFormHooks />
+        {/* SimpleFormInputHook comp calls ./hooks/useInputState.js as hook */}
         <SimpleFormInputHook />
-        <Clicker />
-        <SWMovies />
+        
+        <Clicker />   {/* Using useEffect */}
+
+        <SWMovies />  {/* Using useEffect */}
       </div>
     );
   }
