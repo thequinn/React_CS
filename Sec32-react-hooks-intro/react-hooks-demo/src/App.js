@@ -1,36 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import CounterClass from './CounterClass';
+import CounterHooks from './CounterHooks';
+import Toggler_1 from "./Toggler_1";
+import Toggler_2 from "./Toggler_2";
 
-import CounterClass from "./CounterClass";
-import CounterHooks from "./CounterHooks";
-
-import SimpleFormClass from "./SimpleFormClass";
-import SimpleFormHooks from "./SimpleFormHooks";
-import SimpleFormInputHook from "./SimpleFormInputHook";
-
-import Toggler from "./Toggler";
-import Clicker from "./Clicker";
-import SWMovies from "./SWMovies";
-
-import "./App.css";
+import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <CounterClass />
         <CounterHooks />
 
-        {/* Toggler comp calls ./hooks/useToggle.js as hook */}
-        <Toggler />
-
-        <SimpleFormClass />
-        <SimpleFormHooks />
-        {/* SimpleFormInputHook comp calls ./hooks/useInputState.js as hook */}
-        <SimpleFormInputHook />
-        
-        <Clicker />   {/* Using useEffect */}
-
-        <SWMovies />  {/* Using useEffect */}
+        <Toggler_1 />
+        <Toggler_2 />
       </div>
     );
   }
