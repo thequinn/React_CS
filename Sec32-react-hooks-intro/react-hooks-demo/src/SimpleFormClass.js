@@ -15,7 +15,7 @@ class SimpleFormClass extends Component {
     return (
       <div>
         <h1>You entered {this.state.words}</h1>
-        {/* Compare to ln-9~13 in SimpleFormHooks.js */}
+        
         <input 
           type='text' 
           value={this.state.words} 

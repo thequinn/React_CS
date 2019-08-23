@@ -20,18 +20,15 @@ export default function SimpleFormHooks() {
     <div>
       <h1>The value is {words}</h1>
       
-      {/* Method-#1: Inline func for event handler */}
       <input 
         type='text' 
         value={words} 
+        // Method-#1: Inline func for event handler
         // onChange={(evt) => { setWords(evt.target.value) }}
+        //
+        // Method-#2: Independent func for event handler
         onChange={handleChange}
       />
-      {/* Method-#2: Independent func for event handler */}
-      {/* <input 
-        type="text"
-        value
-      /> */}
 
       <button onClick={() => { setWords("") }}>Submit</button>
     </div>

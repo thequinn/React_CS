@@ -1,20 +1,19 @@
-import React from "react";
-import useInputState from "./hooks/useInputState";
+import React from 'react';
+import useInputState from './hooks/useInputState';
 
 export default function SimpleFormInputHook() {
-  // Both ln-6 and ln-7 re-use the hook of ./hooks/useInputState.js
-  const [email, updateEmail, resetEmail] = useInputState("");
-  const [password, updatePassword, resetPassword] = useInputState("");
-
+  const [words, setWords, resetWords] = useInputState("");
+  const [phrase, setPhrase, resetPhrase] = useInputState("");
+  
   return (
     <div>
-      <h1>
-        Email is: {email} & Password is: {password}
-      </h1>
-      <input type='text' value={email} onChange={updateEmail} />
-      <button onClick={resetEmail}>Reset Email</button>
-      <input type='text' value={password} onChange={updatePassword} />      
-      <button onClick={resetPassword}>Reset Password</button>
+      <h1>The words are {words}, the phrase are {phrase}</h1> 
+           
+      <input type='text' value={words} onChange={setWords} />
+      <button onClick={() => { resetWords("") }}>Reset words</button>
+
+      <input type='text' value={phrase} onChange={setPhrase} />
+      <button onClick={() => { resetPhrase("") }}>Reset phrae</button>
     </div>
   );
 }

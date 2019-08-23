@@ -1,16 +1,14 @@
-import { useState } from "react";
+import {useState} from 'react';
 
-export default initialVal => {
-  const [value, setValue] = useState(initialVal);
+export default initialVal =>  {
+  const [val, setVal] = useState(initialVal);
 
   const handleChange = e => {
-    setValue(e.target.value);
-  };
-
+    setVal(e.target.value);
+  }
   const reset = () => {
-    setValue("");
-  };
+    setVal("");
+  }
 
-  // You can return an array or an obj from a hook
-  return [value, handleChange, reset];
-};
+  return [val, handleChange, reset];
+}
