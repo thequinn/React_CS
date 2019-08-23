@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 export default function SimpleFormHooks() {
-  const [email, setEmail] = useState("");
+  const [words, setWords] = useState("");
 
-  const handleChange = e => {
-    setEmail(e.target.value);
-  };
-   
+  // Regular func
+  function handleChange(evt) {
+    setWords(evt.target.value);
+  }
+  // Func expression 
+  // const handleChange = function(evt) {
+  //   setWords(evt.target.value);
+  // }
+  // Arrow func
+  // const handleChange = evt => {
+  //   setWords(evt.target.value);
+  // }
+
   return (
     <div>
-      <h1>The value is...{email}</h1>
-      <input type='text' value={email} onChange={handleChange} />
-      <button onClick={() => setEmail("")}>Submit</button>
+      <h1>The value is {words}</h1>
+      
+      {/* Method-#1: Inline func for event handler */}
+      <input 
+        type='text' 
+        value={words} 
+        // onChange={(evt) => { setWords(evt.target.value) }}
+        onChange={handleChange}
+      />
+      {/* Method-#2: Independent func for event handler */}
+      {/* <input 
+        type="text"
+        value
+      /> */}
+
+      <button onClick={() => { setWords("") }}>Submit</button>
     </div>
   );
 }
