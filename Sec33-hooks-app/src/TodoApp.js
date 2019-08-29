@@ -1,20 +1,25 @@
-import React, {useState} from 'react';
-import TodoList from 'TodoList';
+import React, {useState} from "react";
+import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
 
+// Import Material-UI
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 
-export default function TodoApp() {
+function TodoApp() {
   const initialTodos = [
     { id:1, task:"Drink juice", completed: false },
     { id:2, task:"Go to school", completed: true },
     { id:3, task:"Get coffee", completed: false}
   ];
-
   const [todos, setTodos] = useState(initialTodos);
+  
+  const addTodo = newTodoText => {
+    setTodos([...todos, { id:4, task: newTodoText, completed: false }]);
+  };
 
   return (
     <Paper
@@ -24,13 +29,21 @@ export default function TodoApp() {
         height: "100vh",
         backgroundColor: "#fafafa"
       }}
-    elevation={0}
-  >
-    <AppBar color='primary' position='static' style={{ height: "64px" }}>
-      <Toolbar>
-        <Typography color='inherit'>TODOS WITH HOOKS</Typography>
-      </Toolbar>
-    </AppBar>      
-  </Paper>
+      elevation={0}
+    >
+      <AppBar color='primary' position='static' style={{ height: "64px" }}>
+        <Toolbar>
+          <Typography color='inherit'>TODOS WITH HOOKS</Typography>
+        </Toolbar>
+      </AppBar>
+
+      <Grid container justify='center' style={{ marginTop: '1rem' }}>
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm addTodo={addTodo} />
+          <TodoList todos={todos} />
+        </Grid>
+      </Grid>
+    </Paper>
   );
 }
+export default TodoApp;
