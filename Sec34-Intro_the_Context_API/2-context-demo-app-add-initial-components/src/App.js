@@ -3,9 +3,10 @@ import Navbar from "./Navbar";
 import Form from "./Form";
 
 import PageContent from "./PageContent";
-import { ThemeProvider} from "./contexts/ThemeContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 class App extends Component {
+
   render() {
     return (
       <ThemeProvider>
@@ -17,5 +18,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

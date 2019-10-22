@@ -5,7 +5,7 @@ export const ThemeContext = createContext();
 export class ThemeProvider extends Component {
   constructor(props) {
     super(props);
-    this.state = { isDarkMode: false };
+    this.state = { isDarkMode: true };
   }
 
   render() {
@@ -15,6 +15,6 @@ export class ThemeProvider extends Component {
       >
         {this.props.children}
       </ThemeContext.Provider>
-    )
+    );
   }
 }
