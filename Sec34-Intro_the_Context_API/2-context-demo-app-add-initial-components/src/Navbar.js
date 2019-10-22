@@ -17,7 +17,7 @@ class Navbar extends Component {
 
   render() {
     //console.log(this.context);
-    const { isDarkMode } = this.context;
+    const { isDarkMode, toggleTheme } = this.context;
 
     // "classes" is now part of "props".  
     const { classes } = this.props;
@@ -36,7 +36,7 @@ class Navbar extends Component {
             </Typography>
             
             {/* The switch button will be used to toggle dark/light theme  */}
-            <Switch />
+            <Switch onChange={toggleTheme}/>
             
             <div className={classes.grow} />
 
