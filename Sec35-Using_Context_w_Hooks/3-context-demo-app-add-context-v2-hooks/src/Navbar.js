@@ -10,13 +10,7 @@ import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/NavBarStyles";
 
-// Stays the same
 import { ThemeContext } from "./contexts/ThemeContext";
-
-// Using HOC w/ Context.Consumer in a class comp 
-//import { withLanguageContext } from "./contexts/LanguageContext";
-//
-// Using context w/ hooks in a functional comp
 import { LanguageContext } from "./contexts/LanguageContext";
 
 const content = {
@@ -34,28 +28,12 @@ const content = {
   }
 };
 
-//class Navbar extends Component {
 function Navbar(props) {
-
-  // Using context in a class comp
-  //const { isDarkMode, toggleTheme } = this.context;
-  //
-  // Using context w/ hooks in a functional comp
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-
-  // Using context passed thr HOC in a class comp
-  //const { language } = this.props.languageContext;
-  //
-  // Using context w/ hooks in a functional comp
-  // We can reuse useContext() to access multiple contexts !! 
   const { language } = useContext(LanguageContext);
-
-  //const { classes } = this.props;  // "this" is used in a class comp
-  const { classes } = props;
-  
+  const { classes } = props;  
   const { search, flag } = content[language];
   
-  //render() {
   return (
     <div className={classes.root}>
       <AppBar position='static' color={isDarkMode ? "default" : "primary"}>
@@ -84,13 +62,7 @@ function Navbar(props) {
       </AppBar>
     </div>
   );
-  //}
-
 }
 
-// No need to do anything to this version of Navbar when using context w/ hooks in a functional comp
 export default withStyles(styles)(Navbar);
-//
-// Using HOC w/ Context.Consumer in a class comp
-//export default withLanguageContext(withStyles(styles)(Navbar));
 
