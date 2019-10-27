@@ -1,23 +1,20 @@
-import React, { useReducer }  from 'react';
-import { TodosContext } from "../context/todos.context";
-
+import uuid from "uuid/v4";
 const reducer = (state, action) => {
-  switch(action.type) {
-    case 'ADD':
+  switch (action.type) {
+    case "ADD":
       return [...state, { id: uuid(), task: action.task, completed: false }];
-    case 'REMOVE':
+    case "REMOVE":
       return state.filter(todo => todo.id !== action.id);
-    case 'TOGGLE':
+    case "TOGGLE":
       return state.map(todo =>
-        todo.id === action.id ? { ...state, completed: !todo.completed } : todo
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
-    case 'EDIT':
+    case "EDIT":
       return state.map(todo =>
-        todo.id === action.id ? { ...todo, task: action.task } : todo
+        todo.id === action.id ? { ...todo, task: action.newTask } : todo
       );
     default:
       return state;
   }
-}
-
+};
 export default reducer;
