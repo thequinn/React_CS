@@ -1,6 +1,3 @@
-// This file is modified based on: 
-// - Custom '<App>':  https://nextjs.org/docs#custom-app
-
 import React from 'react';
 import App, { Container } from 'next/app';
 import Navbar from "../components/Navbar";
@@ -22,11 +19,10 @@ class MyApp extends App {
      
     return (
       <Container>
-        {/* Put <Navbar /> in <Container>, <Navbar /> will be in all pages */}
         <Navbar />
 
-        {/* Whatever page we are visiting, ie. index.js or about.js, {...pageProps} will be the page */}
         <Component {...pageProps} />
+
       </Container>
     );
   }
