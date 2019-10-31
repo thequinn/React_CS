@@ -12,7 +12,7 @@ class Index extends Component {
     return (
       <div>
         <h1>Index Page</h1>
-        {/* <p>{props.res}</p> */}
+        <p>{props.res}</p>
       </div>
     );
   }
